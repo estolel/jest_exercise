@@ -8,6 +8,8 @@ class App extends Component{
   state = {
     isLoading: true,
     users: [],
+    active_users: [],
+    inactive_users: [],
     error: null
   };
 
@@ -22,12 +24,22 @@ class App extends Component{
         }).catch((error) => this.setState({ error, isLoading: false }))
   }
 
+
   componentDidMount(){
     this.fetchUsers();
+    
   }
+
+  // moveToActiveUsers(user){
+  //   // items.forEach(item => readable.push(item))
+  //   inactive_users.for
+  // }
 
   render(){
     const {isLoading, users, error} = this.state
+    users.forEach(element => {
+      console.log(element.name)
+    });
     return ( 
       <div>
         <h1 style={{marginLeft: 10}}>Display Account Details</h1>
