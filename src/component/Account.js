@@ -11,9 +11,14 @@ export class Account extends Component{
         }
     }
 
+    onClickCheckboxWithLabel(isChecked){
+        const {user, moveUser} = this.props;
+        moveUser(user, isChecked)
+        // moveUser(user, isChecked)
+    }
+
     render(){
         const {user} = this.props
-
 
         return(
             <div key = {user.username}>
@@ -21,7 +26,9 @@ export class Account extends Component{
                     <div style={{padding: 10}}>
                         <Typography className='name'>Name: {user.name}</Typography>
                         <Typography className='email'>E-mail Address: {user.email}</Typography>
-                        <CheckboxWithLabel labelOn={user.username + " is an active User"}
+                        <CheckboxWithLabel 
+                            onClickCheckboxWithLabel={this.onClickCheckboxWithLabel.bind(this)} 
+                            labelOn={user.username + " is an active User"}
                             labelOff={user.username + " is an inactive User"}/>
                     </div>
                 </Box>

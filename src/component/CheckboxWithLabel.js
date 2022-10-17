@@ -1,3 +1,4 @@
+import { useRadioGroup } from '@material-ui/core';
 import React, {Component} from 'react';
 
 export class CheckboxWithlabel extends Component{
@@ -7,7 +8,11 @@ export class CheckboxWithlabel extends Component{
     }
 
     onChange(){
+        const {onClickCheckboxWithLabel} = this.props
         this.setState({isChecked: !this.state.isChecked})
+        if(onClickCheckboxWithLabel != null){
+            onClickCheckboxWithLabel(this.state.isChecked)
+        }
     }
 
     render(){

@@ -7,9 +7,15 @@ describe('Application test', () => {
         expect(wrapper).not.toBe(null)
     })
 
-    it("renders Account header", () => {
+    it("renders Active Account header", () => {
         const wrapper = shallow(<App></App>)
-        const header = <h1 style ={{marginLeft: 10}}>Display Account Details</h1>
+        const header = <h1 style ={{marginLeft: 10}}>Display Active Account Details</h1>
+        expect(wrapper.contains(header)).toEqual(true)
+    })
+    
+    it("renders Inactive Account header", () => {
+        const wrapper = shallow(<App></App>)
+        const header = <h1 style ={{marginLeft: 10}}>Display Inactive Account Details</h1>
         expect(wrapper.contains(header)).toEqual(true)
     })
 
